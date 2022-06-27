@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Validate your kubernetes resources against specific version of kubernetes api}
   spec.description   = %q{Validate your kubernetes resources against specific version of kubernetes api}
-  spec.homepage      = "github.com/fxposter/kubernetes_schemas"
+  spec.homepage      = "https://github.com/fxposter/kubernetes_schemas"
 
 
   # Specify which files should be added to the gem when it is released.
