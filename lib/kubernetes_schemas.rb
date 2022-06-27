@@ -2,7 +2,8 @@ require "kubernetes_schemas/version"
 require "json-schema"
 
 module KubernetesSchemas
-  def self.load(kubernetes_version)
+  def self.load(kubernetes_version, strict: false)
+    kubernetes_version = "#{kubernetes_version}-strict" if strict
     path = File.expand_path("../../schemas/#{kubernetes_version}", __FILE__)
     Dir.each_child(path).with_object({}) { |filename, hash|
       definition = JSON.parse(File.read(File.join(path, filename)))
