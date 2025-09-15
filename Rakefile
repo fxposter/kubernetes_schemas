@@ -2,14 +2,19 @@ require "bundler/gem_tasks"
 task :default => :spec
 
 KUBERNETES_VERSIONS = {
-  "1.22" => "v1.22.17",
-  "1.23" => "v1.23.17",
-  "1.24" => "v1.24.17",
-  "1.25" => "v1.25.16",
-  "1.26" => "v1.26.14",
-  "1.27" => "v1.27.11",
-  "1.28" => "v1.28.7",
-  "1.29" => "v1.29.2",
+  # "1.22" => "v1.22.17",
+  # "1.23" => "v1.23.17",
+  # "1.24" => "v1.24.17",
+  # "1.25" => "v1.25.16",
+  # "1.26" => "v1.26.14",
+  # "1.27" => "v1.27.11",
+  # "1.28" => "v1.28.7",
+  # "1.29" => "v1.29.2",
+  # "1.30" => "v1.30.13",
+  # "1.31" => "v1.31.12",
+  # "1.32" => "v1.32.8",
+  # "1.33" => "v1.33.4",
+  # "1.34" => "v1.34.0",
 }
 
 task :schemas do
@@ -19,7 +24,7 @@ task :schemas do
 
   KUBERNETES_VERSIONS.each do |kubernetes_version, full_kubernetes_version|
     base_image = "kindest/node"
-    base_image = "#{base_image}-arm64" if RUBY_PLATFORM.start_with?('arm64-')
+    # base_image = "#{base_image}-arm64" if RUBY_PLATFORM.start_with?('arm64-')
     kind_docker_image = "#{base_image}:#{full_kubernetes_version}"
     openapi_path = "#{Dir.tmpdir}/kubernetes-openapi-#{kubernetes_version}"
     jsonschema_dir = "./schemas/#{kubernetes_version}"
